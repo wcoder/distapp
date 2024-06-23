@@ -17,8 +17,6 @@
     "deploy": "bun run build --preset=cloudflare-pages && npx wrangler pages deploy dist/"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.556.0",
-    "@aws-sdk/s3-request-presigner": "^3.556.0",
     "@hebilicious/vue-query-nuxt": "^0.3.0",
     "@libsql/client": "^0.6.0",
     "@plist/parse": "^1.1.0",
@@ -33,6 +31,7 @@
     "jose": "^5.2.4",
     "jszip": "^3.10.1",
     "lodash": "^4.17.21",
+    "minio": "^8.0.1",
     "moment": "^2.30.1",
     "pg": "^8.11.3",
     "primeflex": "^3.3.0",

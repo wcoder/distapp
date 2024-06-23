@@ -1,5 +1,6 @@
 import { parse } from "@plist/parse"
 import JSZip from "jszip"
+import ManifestParser from '~/utils/apkparser/manifest'
 
 export const readPackageFile = async (data: File | Buffer | ArrayBuffer | string | Blob) => {
     var fileZip = new JSZip();
@@ -27,8 +28,7 @@ export const readPackageFile = async (data: File | Buffer | ArrayBuffer | string
         if (process.server) {
             const androidManifestApk = await androidManifestApkEntry?.async('nodebuffer')
             if (androidManifestApk) {
-                const ManifestParser = await import('~/utils/apkparser/manifest')
-                const manifestParser = new ManifestParser.default(androidManifestApk, {}).parse()
+                const manifestParser = new ManifestParser(androidManifestApk, {}).parse()
                 packageMetadata = {
                     versionCode: manifestParser.versionCode,
                     versionName: manifestParser.versionName,
