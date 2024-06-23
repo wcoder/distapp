@@ -35,6 +35,14 @@ export default defineNuxtConfig({
     experimental: {
       openAPI: true
     },
+    rollupConfig: {
+      external: ['readable-stream']
+    },
+    output: {
+      generatedCode: {
+        symbols: true,
+      },
+    },
     // node: true,
   },
   imports: {
