@@ -36,7 +36,7 @@ export default defineNuxtConfig({
       openAPI: true
     },
     rollupConfig: {
-      external: ['readable-stream']
+      external: ['readable-stream'],
     },
     output: {
       generatedCode: {
