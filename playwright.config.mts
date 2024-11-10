@@ -7,7 +7,7 @@ export default defineConfig<ConfigOptions>({
         command: 'bun run dev',
         url: 'http://localhost:3000',
         reuseExistingServer: !process.env.CI,
-        stdout: 'ignore',
+        stdout: 'pipe',
         stderr: 'pipe',
     },
     use: {
@@ -16,6 +16,9 @@ export default defineConfig<ConfigOptions>({
         },
     },
     testDir: './tests-e2e',
+    expect: {
+        timeout: 10000,
+    },
     projects: [
         { name: 'Setup', testMatch: '**/*.setup.mts' },
         {

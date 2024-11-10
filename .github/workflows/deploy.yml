@@ -21,7 +21,7 @@ jobs:
     - name: Get installed Playwright version
       id: playwright-version
       run: |
-        playwrightVersion="$(bunx playwright --version)-2"
+        playwrightVersion=$(bunx playwright --version)
         echo "version=$playwrightVersion" >> $GITHUB_OUTPUT
     - uses: actions/cache@v4
       id: playwright-cache
