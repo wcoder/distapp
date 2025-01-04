@@ -6,7 +6,7 @@ import { extractAabToApk } from "../../cli/extract-aab-to-apk";
 import { downloadFile } from "../../server/services/downloadFile";
 
 async function generateTempFolder(orgId: string, appId: string): Promise<string> {
-    const tempFolder = join(process.cwd(), '.temp', 'aab_gen', orgId, appId, uuidv4().substring(0, 13))
+    const tempFolder = join(process.cwd(), '.temp', 'aab_gen', uuidv4().replaceAll('-', '').substring(0, 16))
     await promises.mkdir(tempFolder, {
         recursive: true,
     })
